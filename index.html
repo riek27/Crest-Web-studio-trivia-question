@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>professional feedback form · website demo</title>
+  <title>professional feedback · website demo</title>
   <style>
     /* === RESET & MODERN BASE === */
     * {
@@ -167,11 +167,6 @@
       background-size: 1.2rem;
     }
 
-    /* phone field */
-    input[type="tel"] {
-      /* specific styling if needed */
-    }
-
     /* submit button – smooth */
     .submit-btn {
       background: #1f3f5c;
@@ -247,8 +242,8 @@
   <div class="form-card" id="formCard">
     <!-- header -->
     <div class="form-header">
-      <h1>✨ Quick feedback · website demo</h1>
-      <p>Your insights help us shape your perfect web presence</p>
+      <h1>✨ Your feedback · website demo</h1>
+      <p>Ten quick questions to shape your perfect web presence</p>
     </div>
 
     <!-- NETLIFY FORM (name + data-netlify) -->
@@ -263,7 +258,7 @@
       <input type="hidden" name="form-name" value="feedback-form" />
       <input type="hidden" name="bot-field" aria-hidden="true" style="display: none;" />
 
-      <!-- SECTION 1: contact basics (including new phone) -->
+      <!-- SECTION 1: CONTACT BASICS (kept as before) -->
       <div class="form-section">
         <div class="field-group">
           <label for="clientName">👤 Full name</label>
@@ -280,22 +275,22 @@
           <input type="email" id="email" name="email" placeholder="hello@business.com" />
         </div>
 
-        <!-- + ADDED PHONE NUMBER FIELD (requested) -->
+        <!-- phone field (extra contact, stays) -->
         <div class="field-group">
-          <label for="phone">📞 Phone number <span class="hint">(mobile or direct line)</span></label>
+          <label for="phone">📞 Phone number <span class="hint">(optional)</span></label>
           <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
         </div>
       </div>
 
-      <!-- SECTION 2: first impression & professionalism -->
+      <!-- SECTION 2: FIRST IMPRESSION & TRUST (questions 1–3) -->
       <div class="form-section">
         <div class="field-group">
-          <label for="firstImpression">1. Honest first impression when you saw the demo?</label>
-          <textarea id="firstImpression" name="firstImpression" placeholder="Describe your immediate thoughts..."></textarea>
+          <label for="firstImpression">1. What was your honest first impression when you saw the demo website for your business?</label>
+          <textarea id="firstImpression" name="firstImpression" placeholder="e.g. modern, clean, professional, or any immediate thoughts..."></textarea>
         </div>
 
         <div class="field-group">
-          <label for="professionalRating">2. Compared to current online presence, how much more professional does the demo look? <span class="hint">(1 = not at all, 10 = extremely)</span></label>
+          <label for="professionalRating">2. Compared to your current online presence (or lack of one), how much more professional does the demo website make your business look? <span class="hint">(1 = not at all, 10 = extremely)</span></label>
           <select id="professionalRating" name="professionalRating">
             <option value="" disabled selected>– select rating –</option>
             <option value="1">1 – not at all</option>
@@ -312,33 +307,33 @@
         </div>
 
         <div class="field-group">
-          <label for="trustEffect">3. How would it affect a potential customer’s trust?</label>
-          <textarea id="trustEffect" name="trustEffect" placeholder="e.g. they'd see us as more credible..."></textarea>
+          <label for="trustEffect">3. If a potential customer discovered your business through this website, how do you think it would affect their trust in your company?</label>
+          <textarea id="trustEffect" name="trustEffect" placeholder="e.g. they'd see us as more credible, established..."></textarea>
         </div>
       </div>
 
-      <!-- SECTION 3: interaction & standouts -->
+      <!-- SECTION 3: INTERACTION & STANDOUT (questions 4–6) -->
       <div class="form-section">
         <div class="field-group">
-          <label for="customerInteraction">4. How might this website change the way customers interact with you online?</label>
-          <textarea id="customerInteraction" name="customerInteraction" placeholder="e.g. easier contact, more engagement..."></textarea>
+          <label for="customerInteraction">4. Can you imagine how this website might change the way customers interact with your business online?</label>
+          <textarea id="customerInteraction" name="customerInteraction" placeholder="e.g. easier contact, more engagement, clearer message..."></textarea>
         </div>
 
         <div class="field-group">
-          <label for="stoodOut">5. What part of the demo stood out the most?</label>
-          <textarea id="stoodOut" name="stoodOut" placeholder="e.g. layout, colors, speed..."></textarea>
+          <label for="stoodOut">5. What part of the demo website stood out to you the most?</label>
+          <textarea id="stoodOut" name="stoodOut" placeholder="e.g. layout, colors, simplicity, responsiveness..."></textarea>
         </div>
 
         <div class="field-group">
-          <label for="changes">6. Anything you would change or add to make it perfect for your business?</label>
-          <textarea id="changes" name="changes" placeholder="Adjustments you'd love to see..."></textarea>
+          <label for="changes">6. Is there anything you would change or add to make this website perfect for your business?</label>
+          <textarea id="changes" name="changes" placeholder="Adjustments, features, or content you'd love to see..."></textarea>
         </div>
       </div>
 
-      <!-- SECTION 4: importance & value -->
+      <!-- SECTION 4: IMPORTANCE & VALUE (questions 7–8) -->
       <div class="form-section">
         <div class="field-group">
-          <label for="importanceRating">7. Importance of strong online presence for your growth this year? <span class="hint">(1 = low, 10 = critical)</span></label>
+          <label for="importanceRating">7. How important is having a strong online presence for your business growth this year? <span class="hint">(1 = low, 10 = critical)</span></label>
           <select id="importanceRating" name="importanceRating">
             <option value="" disabled selected>– select rating –</option>
             <option value="1">1 – not important</option>
@@ -355,15 +350,15 @@
         </div>
 
         <div class="field-group">
-          <label for="value">8. Value of attracting a few more customers each month?</label>
-          <textarea id="value" name="value" placeholder="e.g. huge / moderate / transformative..."></textarea>
+          <label for="valuableCustomers">8. If a website like this helped you attract even a few more customers each month, how valuable would that be for your business?</label>
+          <textarea id="valuableCustomers" name="valuableCustomers" placeholder="e.g. transformative, huge impact, nice boost..."></textarea>
         </div>
       </div>
 
-      <!-- SECTION 5: yes/no & decision -->
+      <!-- SECTION 5: DECISION & SUPPORT (questions 9–10) -->
       <div class="form-section">
         <div class="field-group">
-          <label>9. Would having someone handle design, updates, and tech make things easier?</label>
+          <label>9. Would having someone handle the design, updates, and technical side of your website make things easier for you?</label>
           <div class="radio-group">
             <label><input type="radio" name="handleDesign" value="Yes" /> Yes</label>
             <label><input type="radio" name="handleDesign" value="No" /> No</label>
@@ -371,7 +366,7 @@
         </div>
 
         <div class="field-group">
-          <label>10. If this website were fully customized and ready, would you be open to moving forward?</label>
+          <label>10. If this website was fully customized for your business and ready to launch, would you be open to moving forward with it?</label>
           <div class="radio-group">
             <label><input type="radio" name="openToMove" value="Yes" /> Yes</label>
             <label><input type="radio" name="openToMove" value="No" /> No</label>
@@ -400,7 +395,7 @@
       if (!form) return;
 
       form.addEventListener('submit', async function(e) {
-        e.preventDefault();   // stop native form POST (we use fetch)
+        e.preventDefault();   // stop native form POST (use fetch)
 
         // Collect form data
         const formData = new FormData(form);
@@ -443,6 +438,6 @@
   </script>
 
   <!-- no additional frameworks, pure HTML/CSS/JS, netlify ready -->
-  <!-- phone field added, green popup implemented, design remains clean and modern -->
+  <!-- phone field kept, all 10 questions exactly as provided, green popup implemented, design clean and modern -->
 </body>
 </html>
