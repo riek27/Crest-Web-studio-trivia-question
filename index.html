@@ -1,659 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyperAstraAI - Investor Pitch Deck</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent: #8b5cf6;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --white: #ffffff;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>professional feedback form · website demo</title>
+  <style>
+    /* === RESET & MODERN BASE === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      background: #f0f4fa;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      color: #1e2b3c;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--gray-900);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+    /* main glossy card */
+    .form-card {
+      max-width: 960px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 45px -15px rgba(18, 35, 60, 0.25),
+                  0 8px 20px -8px rgba(0, 20, 40, 0.15);
+      padding: 2.8rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: box-shadow 0.25s;
+      position: relative;
+    }
 
-        .deck-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+    /* header area – subtle gradient */
+    .form-header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
 
-        .slide {
-            margin-bottom: 4rem;
-            padding: 3rem 2rem;
-            border-radius: 24px;
-            background: var(--white);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--gray-200);
-            position: relative;
-            overflow: hidden;
-        }
+    .form-header h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(150deg, #1c3a5c, #2b4c73);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
 
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary) 0%, var(--accent) 100%);
-        }
+    .form-header p {
+      font-size: 1.1rem;
+      color: #446688;
+      max-width: 650px;
+      margin: 0 auto;
+      font-weight: 400;
+      background: rgba(230, 241, 250, 0.7);
+      display: inline-block;
+      padding: 0.4rem 2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
 
-        .slide-header {
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
+    /* sections with soft dividers */
+    .form-section {
+      margin-bottom: 2.2rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px dashed #dde5ef;
+    }
 
-        .slide-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    .form-section:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
 
-        .slide-subtitle {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--gray-800);
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    /* field styling */
+    .field-group {
+      margin-bottom: 1.8rem;
+    }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: center;
-        }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 520;
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+      color: #1d3d5c;
+    }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
+    label .hint {
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #5f7d9c;
+      margin-left: 0.3rem;
+    }
 
-        .card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--gray-200);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.85rem 1.2rem;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 1px solid #cbd6e4;
+      border-radius: 22px;
+      background: #ffffff;
+      transition: 0.2s;
+      box-shadow: 0 4px 10px -2px rgba(0, 20, 30, 0.04);
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #3f82b0;
+      box-shadow: 0 0 0 4px rgba(55, 114, 170, 0.12), 0 4px 12px rgba(0,0,0,0.02);
+    }
 
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--white);
-        }
+    textarea {
+      resize: vertical;
+      min-height: 95px;
+      border-radius: 24px;
+    }
 
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--gray-900);
-        }
+    /* inline radio block – pill style */
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      background: #f5faff;
+      padding: 1rem 1.8rem;
+      border-radius: 50px;
+      border: 1px solid #d3e2f2;
+      margin-top: 0.4rem;
+    }
 
-        .card-content {
-            color: var(--gray-800);
-            line-height: 1.6;
-        }
+    .radio-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 480;
+      color: #1f4465;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
+    .radio-group input[type="radio"] {
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: #2b6a9e;
+      margin: 0;
+      box-shadow: none;
+    }
 
-        .stat-label {
-            font-size: 1rem;
-            color: var(--gray-800);
-        }
+    /* custom select arrow */
+    select {
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23365e86" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+      background-repeat: no-repeat;
+      background-position: right 1.3rem center;
+      background-size: 1.2rem;
+    }
 
-        .market-chart {
-            width: 100%;
-            height: 200px;
-            background: var(--gray-50);
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            margin: 1.5rem 0;
-        }
+    /* phone field */
+    input[type="tel"] {
+      /* specific styling if needed */
+    }
 
-        .chart-bar {
-            position: absolute;
-            bottom: 0;
-            width: 60px;
-            background: linear-gradient(to top, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 4px 4px 0 0;
-        }
+    /* submit button – smooth */
+    .submit-btn {
+      background: #1f3f5c;
+      color: white;
+      border: none;
+      padding: 1.1rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 580;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 12px 22px -12px #1f3f5c80;
+      letter-spacing: 0.3px;
+      margin: 1rem 0 0.5rem;
+      border: 1px solid #ffffff30;
+    }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+    .submit-btn:hover {
+      background: #27537a;
+      transform: scale(1.01);
+      box-shadow: 0 18px 28px -12px #1d3e60;
+    }
 
-        .team-member {
-            text-align: center;
-            padding: 1.5rem;
-        }
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
 
-        .member-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--white);
-        }
+    /* === GREEN TOAST (pop‑up) === */
+    .toast-success {
+      visibility: hidden;
+      min-width: 280px;
+      background: #1b8c5e;
+      color: #f1fcf5;
+      text-align: center;
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      font-size: 1.15rem;
+      font-weight: 520;
+      box-shadow: 0 18px 30px -10px #10633e;
+      border-left: 6px solid #a0f0c0;
+      backdrop-filter: blur(6px);
+      position: sticky;
+      bottom: 1rem;
+      margin: 1rem auto 0;
+      width: fit-content;
+      transition: visibility 0.2s, opacity 0.2s linear;
+      opacity: 0;
+      z-index: 100;
+    }
 
-        .member-name {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
+    .toast-success.show {
+      visibility: visible;
+      opacity: 1;
+    }
 
-        .member-role {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
+    /* divider line for extra rhythm */
+    hr {
+      border: none;
+      border-top: 2px dotted #c5d7ea;
+      margin: 2rem 0 1.2rem;
+    }
 
-        .member-bio {
-            color: var(--gray-800);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, transparent 0%, transparent 50%, rgba(37, 99, 235, 0.1) 50%);
-            background-size: 220% 100%;
-            background-position: 100% 0;
-            transition: all 0.5s ease;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        .highlight.active {
-            background-position: 0 0;
-        }
-
-        .cover-container {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #f0f4ff 0%, #fdf2f8 100%);
-            border-radius: 24px;
-            margin-bottom: 4rem;
-        }
-
-        .cover-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cover-subtitle {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--gray-800);
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        .tagline {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 2rem;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            color: var(--gray-800);
-            border-top: 1px solid var(--gray-200);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @media (max-width: 1024px) {
-            .grid-2, .grid-3, .team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .slide-title {
-                font-size: 2rem;
-            }
-            
-            .cover-title {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    /* responsive */
+    @media (max-width: 600px) {
+      .form-card { padding: 2rem 1.2rem; }
+      .radio-group { gap: 1.2rem; padding: 0.8rem 1rem; }
+      .form-header h1 { font-size: 1.9rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="deck-container">
-        <div class="logo">HyperAstraAI</div>
-        
-        <!-- Cover Slide -->
-        <div class="cover-container">
-            <h1 class="cover-title">HyperAstraAI</h1>
-            <p class="cover-subtitle">Decentralized AI Compute for the Next Generation</p>
-            <p class="cover-subtitle" style="margin-top: 1rem; font-size: 1.25rem;">Empowering developers and enterprises with affordable, secure, and high-performance AI infrastructure globally.</p>
-            <div class="tagline">Investor Pitch Deck</div>
-        </div>
-
-        <!-- Slide 1: Problem -->
-        <div class="slide" id="slide-1">
-            <div class="slide-header">
-                <h2 class="slide-title">The Problem</h2>
-                <p class="slide-subtitle">Current AI infrastructure is broken, expensive, and centralized</p>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">💰</div>
-                    <h3 class="card-title">Prohibitive Costs</h3>
-                    <p class="card-content">AI development requires massive GPU resources that are extremely expensive. Training large models can cost millions on traditional cloud platforms.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🌐</div>
-                    <h3 class="card-title">Centralized Infrastructure</h3>
-                    <p class="card-content">Cloud providers create bottlenecks with limited availability, high latency, and vendor lock-in that restricts innovation.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📈</div>
-                    <h3 class="card-title">Scaling Challenges</h3>
-                    <p class="card-content">Small teams and startups struggle to access the computational power needed to compete with well-funded competitors.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 2: Solution -->
-        <div class="slide" id="slide-2">
-            <div class="slide-header">
-                <h2 class="slide-title">Our Solution</h2>
-                <p class="slide-subtitle">A decentralized GPU network that democratizes AI compute</p>
-            </div>
-            <div class="grid-2">
-                <div>
-                    <div class="card">
-                        <div class="card-icon">🔗</div>
-                        <h3 class="card-title">Decentralized Network</h3>
-                        <p class="card-content">Connecting global GPU resources into a unified, high-performance compute fabric that eliminates single points of failure.</p>
-                    </div>
-                    <div class="card" style="margin-top: 2rem;">
-                        <div class="card-icon">⚡</div>
-                        <h3 class="card-title">High Performance</h3>
-                        <p class="card-content">Low-latency AI training & inference with optimized resource allocation and distributed processing capabilities.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="card">
-                        <div class="card-icon">🏷️</div>
-                        <h3 class="card-title">Cost Effective</h3>
-                        <p class="card-content">Up to 70% cost reduction compared to traditional cloud providers by eliminating middlemen and overhead.</p>
-                    </div>
-                    <div class="card" style="margin-top: 2rem;">
-                        <div class="card-icon">🔒</div>
-                        <h3 class="card-title">Security & Privacy</h3>
-                        <p class="card-content">Enterprise-grade encryption and privacy-first architecture that keeps your models and data secure.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Product / MVP -->
-        <div class="slide" id="slide-3">
-            <div class="slide-header">
-                <h2 class="slide-title">Product & MVP Status</h2>
-                <p class="slide-subtitle">Building the foundation for decentralized AI infrastructure</p>
-            </div>
-            <div class="grid-2">
-                <div>
-                    <div class="card">
-                        <h3 class="card-title" style="color: var(--success);">✅ Completed</h3>
-                        <p class="card-content" style="margin-top: 1rem;">
-                            <strong>Front-end Platform:</strong> Fully functional, intuitive UI for managing AI jobs, monitoring progress, and accessing results.
-                        </p>
-                        <p class="card-content" style="margin-top: 1rem;">
-                            <strong>User Experience:</strong> Streamlined workflow for submitting training jobs, selecting frameworks, and configuring resources.
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="card">
-                        <h3 class="card-title" style="color: var(--warning);">🚧 In Development</h3>
-                        <p class="card-content" style="margin-top: 1rem;">
-                            <strong>Backend Infrastructure:</strong> Core distributed system for connecting and managing GPU resources across the network.
-                        </p>
-                        <p class="card-content" style="margin-top: 1rem;">
-                            <strong>Planned Features:</strong> Automated job scheduling, advanced encryption, multi-cloud integration, and blockchain-based verification.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4: Market Opportunity -->
-        <div class="slide" id="slide-4">
-            <div class="slide-header">
-                <h2 class="slide-title">Market Opportunity</h2>
-                <p class="slide-subtitle">Positioned in a rapidly expanding $25B+ market</p>
-            </div>
-            <div class="grid-2">
-                <div>
-                    <div class="card">
-                        <div class="stat-number">$25B+</div>
-                        <div class="stat-label">AI Compute Market Size</div>
-                        <p class="card-content" style="margin-top: 1rem;">Growing at 30% YoY as AI adoption accelerates across industries.</p>
-                    </div>
-                    <div class="card" style="margin-top: 2rem;">
-                        <h3 class="card-title">Target Customers</h3>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem; color: var(--gray-800); line-height: 1.8;">
-                            <li>AI Startups & Scaleups</li>
-                            <li>Enterprise AI Teams</li>
-                            <li>Research Labs & Academia</li>
-                            <li>AI Consulting Firms</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div class="card">
-                        <h3 class="card-title">Market Growth</h3>
-                        <div class="market-chart">
-                            <!-- This would be a chart in a real implementation -->
-                            <div class="chart-bar" style="left: 20%; height: 40%;"></div>
-                            <div class="chart-bar" style="left: 30%; height: 60%;"></div>
-                            <div class="chart-bar" style="left: 40%; height: 80%;"></div>
-                            <div class="chart-bar" style="left: 50%; height: 95%;"></div>
-                            <div class="chart-bar" style="left: 60%; height: 100%;"></div>
-                        </div>
-                        <p class="card-content" style="text-align: center; margin-top: 1rem;">Projected Market Growth (2023-2027)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Traction / Progress -->
-        <div class="slide" id="slide-5">
-            <div class="slide-header">
-                <h2 class="slide-title">Traction & Progress</h2>
-                <p class="slide-subtitle">Building momentum with a focused execution plan</p>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h3 class="card-title">MVP Development</h3>
-                    <p class="card-content">Front-end completed with backend infrastructure actively in development. Preparing for early adopter onboarding in 3-6 months.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">👥</div>
-                    <h3 class="card-title">Team Assembly</h3>
-                    <p class="card-content">Experienced team with backgrounds in AI, distributed systems, and cloud computing. Proven track record in building scalable platforms.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📊</div>
-                    <h3 class="card-title">Market Validation</h3>
-                    <p class="card-content">Strong interest from AI startups and research institutions. Waitlist growing with qualified early adopters.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 6: Business Model -->
-        <div class="slide" id="slide-6">
-            <div class="slide-header">
-                <h2 class="slide-title">Business Model</h2>
-                <p class="slide-subtitle">Multiple revenue streams with scalable pricing</p>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">💳</div>
-                    <h3 class="card-title">B2B SaaS</h3>
-                    <p class="card-content">Subscription & pay-per-use model for GPU compute with tiered pricing based on resource requirements and usage patterns.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🏢</div>
-                    <h3 class="card-title">Enterprise Plans</h3>
-                    <p class="card-content">Dedicated resources with SLAs, premium support, and custom integration options for large organizations.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📈</div>
-                    <h3 class="card-title">Scalable Pricing</h3>
-                    <p class="card-content">Dynamic pricing that becomes more competitive as network effects grow and operational efficiency improves.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 7: Competitive Advantage -->
-        <div class="slide" id="slide-7">
-            <div class="slide-header">
-                <h2 class="slide-title">Competitive Advantage</h2>
-                <p class="slide-subtitle">Differentiated positioning in a crowded market</p>
-            </div>
-            <div class="grid-2">
-                <div>
-                    <div class="card">
-                        <div class="card-icon">🔗</div>
-                        <h3 class="card-title">Decentralized Network</h3>
-                        <p class="card-content">Lower costs & higher availability by leveraging underutilized global GPU resources instead of centralized data centers.</p>
-                    </div>
-                    <div class="card" style="margin-top: 2rem;">
-                        <div class="card-icon">🌍</div>
-                        <h3 class="card-title">Global GPU Access</h3>
-                        <p class="card-content">Low latency, distributed computing power that follows demand patterns across geographic regions.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="card">
-                        <div class="card-icon">🔒</div>
-                        <h3 class="card-title">Secure & Private</h3>
-                        <p class="card-content">Enterprise-grade encryption with privacy-first architecture that protects sensitive models and training data.</p>
-                    </div>
-                    <div class="card" style="margin-top: 2rem;">
-                        <div class="card-icon">⚡</div>
-                        <h3 class="card-title">First-Mover Advantage</h3>
-                        <p class="card-content">Pioneering the decentralized AI compute space with a focused approach on solving real customer pain points.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: Go-to-Market Strategy -->
-        <div class="slide" id="slide-8">
-            <div class="slide-header">
-                <h2 class="slide-title">Go-to-Market Strategy</h2>
-                <p class="slide-subtitle">Targeted approach to capture early market share</p>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">🚀</div>
-                    <h3 class="card-title">Early Adopters</h3>
-                    <p class="card-content">Focus on AI startups and small/medium enterprises who feel the cost pain most acutely and value innovation.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤝</div>
-                    <h3 class="card-title">Strategic Partnerships</h3>
-                    <p class="card-content">Collaborate with research labs, AI incubators, and academic institutions to build credibility and reach.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🌐</div>
-                    <h3 class="card-title">Community Building</h3>
-                    <p class="card-content">Developer programs, open source contributions, and online community to drive organic adoption and feedback.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 9: Team -->
-        <div class="slide" id="slide-9">
-            <div class="slide-header">
-                <h2 class="slide-title">Team</h2>
-                <p class="slide-subtitle">Experienced founders with domain expertise</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-avatar">👨‍💻</div>
-                    <h3 class="member-name">Riek Gatluak Geka</h3>
-                    <div class="member-role">CEO & Founder</div>
-                    <p class="member-bio">Fullstack Engineer and Expert in AI infrastructure and machine learning platforms.</p>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">👩‍🔬</div>
-                    <h3 class="member-name">Fibhor Ruot Pech</h3>
-                    <div class="member-role">CTO & Co-founder</div>
-                    <p class="member-bio">Expert in scalable AI systems.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 10: Ask / Next Steps -->
-        <div class="slide" id="slide-10">
-            <div class="slide-header">
-                <h2 class="slide-title">Ask & Next Steps</h2>
-                <p class="slide-subtitle">Partnering to accelerate our vision</p>
-            </div>
-            <div class="grid-2">
-                <div>
-                    <div class="card">
-                        <h3 class="card-title">Accelerator Support</h3>
-                        <p class="card-content" style="margin-top: 1rem;">
-                            Seeking mentorship, network access, and guidance to refine our product-market fit and growth strategy.
-                        </p>
-                        <ul style="margin-top: 1.5rem; padding-left: 1.5rem; color: var(--gray-800); line-height: 1.8;">
-                            <li>Technical mentorship for scaling challenges</li>
-                            <li>Connections to enterprise customers</li>
-                            <li>Guidance on fundraising strategy</li>
-                            <li>Product feedback from industry experts</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div class="card">
-                        <h3 class="card-title">Immediate Goals</h3>
-                        <p class="card-content" style="margin-top: 1rem;">
-                            Our focused execution plan for the coming months:
-                        </p>
-                        <ul style="margin-top: 1.5rem; padding-left: 1.5rem; color: var(--gray-800); line-height: 1.8;">
-                            <li>Finalize backend infrastructure</li>
-                            <li>Onboard pilot users for validation</li>
-                            <li>Prepare for seed funding round</li>
-                            <li>Expand early adopter program</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <div class="tagline">Thank You</div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2025 HyperAstraAI. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray-800);">Confidential & Proprietary</p>
-        </div>
+  <div class="form-card" id="formCard">
+    <!-- header -->
+    <div class="form-header">
+      <h1>✨ Quick feedback · website demo</h1>
+      <p>Your insights help us shape your perfect web presence</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add highlight animation to key elements
-            const highlights = document.querySelectorAll('.highlight');
-            setInterval(() => {
-                highlights.forEach(highlight => {
-                    highlight.classList.toggle('active');
-                });
-            }, 2000);
-            
-            // Add animation to cards on scroll
-            const cards = document.querySelectorAll('.card');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-        });
-    </script>
+    <!-- NETLIFY FORM (name + data-netlify) -->
+    <form 
+      id="feedbackForm"
+      method="POST" 
+      data-netlify="true" 
+      data-netlify-honeypot="bot-field"
+      name="feedback-form"
+    >
+      <!-- necessary hidden fields -->
+      <input type="hidden" name="form-name" value="feedback-form" />
+      <input type="hidden" name="bot-field" aria-hidden="true" style="display: none;" />
+
+      <!-- SECTION 1: contact basics (including new phone) -->
+      <div class="form-section">
+        <div class="field-group">
+          <label for="clientName">👤 Full name</label>
+          <input type="text" id="clientName" name="clientName" placeholder="e.g. Morgan Chen" />
+        </div>
+
+        <div class="field-group">
+          <label for="businessName">🏢 Business name</label>
+          <input type="text" id="businessName" name="businessName" placeholder="e.g. Chen's patisserie" />
+        </div>
+
+        <div class="field-group">
+          <label for="email">📧 Email address</label>
+          <input type="email" id="email" name="email" placeholder="hello@business.com" />
+        </div>
+
+        <!-- + ADDED PHONE NUMBER FIELD (requested) -->
+        <div class="field-group">
+          <label for="phone">📞 Phone number <span class="hint">(mobile or direct line)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
+        </div>
+      </div>
+
+      <!-- SECTION 2: first impression & professionalism -->
+      <div class="form-section">
+        <div class="field-group">
+          <label for="firstImpression">1. Honest first impression when you saw the demo?</label>
+          <textarea id="firstImpression" name="firstImpression" placeholder="Describe your immediate thoughts..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="professionalRating">2. Compared to current online presence, how much more professional does the demo look? <span class="hint">(1 = not at all, 10 = extremely)</span></label>
+          <select id="professionalRating" name="professionalRating">
+            <option value="" disabled selected>– select rating –</option>
+            <option value="1">1 – not at all</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 – moderately</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 – extremely professional</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="trustEffect">3. How would it affect a potential customer’s trust?</label>
+          <textarea id="trustEffect" name="trustEffect" placeholder="e.g. they'd see us as more credible..."></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 3: interaction & standouts -->
+      <div class="form-section">
+        <div class="field-group">
+          <label for="customerInteraction">4. How might this website change the way customers interact with you online?</label>
+          <textarea id="customerInteraction" name="customerInteraction" placeholder="e.g. easier contact, more engagement..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="stoodOut">5. What part of the demo stood out the most?</label>
+          <textarea id="stoodOut" name="stoodOut" placeholder="e.g. layout, colors, speed..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="changes">6. Anything you would change or add to make it perfect for your business?</label>
+          <textarea id="changes" name="changes" placeholder="Adjustments you'd love to see..."></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 4: importance & value -->
+      <div class="form-section">
+        <div class="field-group">
+          <label for="importanceRating">7. Importance of strong online presence for your growth this year? <span class="hint">(1 = low, 10 = critical)</span></label>
+          <select id="importanceRating" name="importanceRating">
+            <option value="" disabled selected>– select rating –</option>
+            <option value="1">1 – not important</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 – moderately</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 – absolutely critical</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="value">8. Value of attracting a few more customers each month?</label>
+          <textarea id="value" name="value" placeholder="e.g. huge / moderate / transformative..."></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 5: yes/no & decision -->
+      <div class="form-section">
+        <div class="field-group">
+          <label>9. Would having someone handle design, updates, and tech make things easier?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="handleDesign" value="Yes" /> Yes</label>
+            <label><input type="radio" name="handleDesign" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>10. If this website were fully customized and ready, would you be open to moving forward?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="openToMove" value="Yes" /> Yes</label>
+            <label><input type="radio" name="openToMove" value="No" /> No</label>
+            <label><input type="radio" name="openToMove" value="Maybe" /> Maybe</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- soft hr + submit -->
+      <hr />
+      <button type="submit" class="submit-btn" id="submitBtn">📬 Send feedback</button>
+    </form>
+
+    <!-- GREEN POP‑UP TOAST (hidden initially) -->
+    <div id="successToast" class="toast-success" role="status" aria-live="polite">
+      ✅ Thank you for your feedback!
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('feedbackForm');
+      const toast = document.getElementById('successToast');
+      let toastTimer = null;
+
+      if (!form) return;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();   // stop native form POST (we use fetch)
+
+        // Collect form data
+        const formData = new FormData(form);
+        const urlEncoded = new URLSearchParams(formData).toString();
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: urlEncoded,
+          });
+
+          if (response.ok) {
+            // --- GREEN TOAST POPUP ---
+            toast.classList.add('show');
+
+            // reset form fields (optional but user-friendly)
+            form.reset();
+
+            // hide toast after 3.2 seconds
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+              toast.classList.remove('show');
+            }, 3200);
+          } else {
+            // optional: error feedback (could add a red toast, but keep simple)
+            alert('Submission failed. Please try again or contact us directly.');
+          }
+        } catch (error) {
+          alert('Network error – please check your connection.');
+          console.error(error);
+        }
+      });
+
+      // Hide toast if user starts typing? not necessary, but fine.
+      // also, clean timer on success if already shown.
+    })();
+  </script>
+
+  <!-- no additional frameworks, pure HTML/CSS/JS, netlify ready -->
+  <!-- phone field added, green popup implemented, design remains clean and modern -->
 </body>
 </html>
