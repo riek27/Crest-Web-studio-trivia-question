@@ -195,32 +195,51 @@
       transform: scale(0.98);
     }
 
-    /* === GREEN TOAST (pop‑up) === */
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* === GREEN TOAST (pop‑up) – enhanced === */
     .toast-success {
       visibility: hidden;
-      min-width: 280px;
+      min-width: 300px;
       background: #1b8c5e;
       color: #f1fcf5;
       text-align: center;
-      padding: 1rem 2rem;
+      padding: 1rem 2.2rem;
       border-radius: 60px;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 520;
-      box-shadow: 0 18px 30px -10px #10633e;
-      border-left: 6px solid #a0f0c0;
+      box-shadow: 0 20px 35px -10px #0a4d2e;
+      border-left: 6px solid #b0f0c0;
       backdrop-filter: blur(6px);
       position: sticky;
-      bottom: 1rem;
-      margin: 1rem auto 0;
+      bottom: 1.5rem;
+      margin: 1.5rem auto 0;
       width: fit-content;
-      transition: visibility 0.2s, opacity 0.2s linear;
+      transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
       opacity: 0;
+      transform: scale(0.9);
       z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
     }
 
     .toast-success.show {
       visibility: visible;
       opacity: 1;
+      transform: scale(1);
+    }
+
+    .toast-success::before {
+      content: "✅";
+      font-size: 1.4rem;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
     }
 
     /* divider line for extra rhythm */
@@ -235,6 +254,7 @@
       .form-card { padding: 2rem 1.2rem; }
       .radio-group { gap: 1.2rem; padding: 0.8rem 1rem; }
       .form-header h1 { font-size: 1.9rem; }
+      .toast-success { min-width: 260px; font-size: 1rem; }
     }
   </style>
 </head>
@@ -258,7 +278,7 @@
       <input type="hidden" name="form-name" value="feedback-form" />
       <input type="hidden" name="bot-field" aria-hidden="true" style="display: none;" />
 
-      <!-- SECTION 1: CONTACT BASICS (kept as before) -->
+      <!-- SECTION 1: CONTACT BASICS -->
       <div class="form-section">
         <div class="field-group">
           <label for="clientName">👤 Full name</label>
@@ -275,7 +295,7 @@
           <input type="email" id="email" name="email" placeholder="hello@business.com" />
         </div>
 
-        <!-- phone field (extra contact, stays) -->
+        <!-- phone field (extra contact) -->
         <div class="field-group">
           <label for="phone">📞 Phone number <span class="hint">(optional)</span></label>
           <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
@@ -382,7 +402,7 @@
 
     <!-- GREEN POP‑UP TOAST (hidden initially) -->
     <div id="successToast" class="toast-success" role="status" aria-live="polite">
-      ✅ Thank you for your feedback!
+      Thank you for your feedback!
     </div>
   </div>
 
@@ -390,19 +410,25 @@
     (function() {
       const form = document.getElementById('feedbackForm');
       const toast = document.getElementById('successToast');
+      const submitBtn = document.getElementById('submitBtn');
       let toastTimer = null;
 
       if (!form) return;
 
       form.addEventListener('submit', async function(e) {
-        e.preventDefault();   // stop native form POST (use fetch)
+        e.preventDefault();   // stop native form POST
+
+        // Disable button to prevent double submission
+        submitBtn.disabled = true;
+        submitBtn.textContent = '📬 Sending...';
 
         // Collect form data
         const formData = new FormData(form);
         const urlEncoded = new URLSearchParams(formData).toString();
 
         try {
-          const response = await fetch('/', {
+          // Use current page URL instead of '/' to ensure correct Netlify endpoint
+          const response = await fetch(window.location.href, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -414,30 +440,32 @@
             // --- GREEN TOAST POPUP ---
             toast.classList.add('show');
 
-            // reset form fields (optional but user-friendly)
+            // Reset form fields (user-friendly)
             form.reset();
 
-            // hide toast after 3.2 seconds
+            // Hide toast after 3.5 seconds
             if (toastTimer) clearTimeout(toastTimer);
             toastTimer = setTimeout(() => {
               toast.classList.remove('show');
-            }, 3200);
+            }, 3500);
           } else {
-            // optional: error feedback (could add a red toast, but keep simple)
+            // Submission failed but request went through
             alert('Submission failed. Please try again or contact us directly.');
           }
         } catch (error) {
+          // Network error
           alert('Network error – please check your connection.');
           console.error(error);
+        } finally {
+          // Re-enable button
+          submitBtn.disabled = false;
+          submitBtn.textContent = '📬 Send feedback';
         }
       });
-
-      // Hide toast if user starts typing? not necessary, but fine.
-      // also, clean timer on success if already shown.
     })();
   </script>
 
   <!-- no additional frameworks, pure HTML/CSS/JS, netlify ready -->
-  <!-- phone field kept, all 10 questions exactly as provided, green popup implemented, design clean and modern -->
+  <!-- phone field kept, all 10 questions exactly as provided, green popup enhanced -->
 </body>
 </html>
