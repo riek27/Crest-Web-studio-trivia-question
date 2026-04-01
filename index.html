@@ -262,8 +262,8 @@
   <div class="form-card" id="formCard">
     <!-- header -->
     <div class="form-header">
-      <h1>✨ Your feedback · website demo</h1>
-      <p>Ten quick questions to shape your perfect web presence</p>
+      <h1>✨ Your Custom Website Prep</h1>
+      <p>Quick questions to help us tailor your homepage demo for maximum results</p>
     </div>
 
     <!-- NETLIFY FORM (name + data-netlify) -->
@@ -287,7 +287,7 @@
 
         <div class="field-group">
           <label for="businessName">🏢 Business name</label>
-          <input type="text" id="businessName" name="businessName" placeholder="e.g. Chen's patisserie" />
+          <input type="text" id="businessName" name="businessName" placeholder="e.g. Chen's Patisserie" />
         </div>
 
         <div class="field-group">
@@ -295,65 +295,52 @@
           <input type="email" id="email" name="email" placeholder="hello@business.com" />
         </div>
 
-        <!-- phone field (extra contact) -->
         <div class="field-group">
           <label for="phone">📞 Phone number <span class="hint">(optional)</span></label>
           <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
         </div>
       </div>
 
-      <!-- SECTION 2: FIRST IMPRESSION & TRUST (questions 1–3) -->
+      <!-- SECTION 2: BUSINESS GOALS & CHALLENGES -->
       <div class="form-section">
         <div class="field-group">
-          <label for="firstImpression">1. What was your honest first impression when you saw the demo website for your business?</label>
-          <textarea id="firstImpression" name="firstImpression" placeholder="e.g. modern, clean, professional, or any immediate thoughts..."></textarea>
+          <label for="goal">1. What is the main goal you want your business to achieve in the next 3–6 months?</label>
+          <textarea id="goal" name="goal" placeholder="e.g. more customers, higher revenue, better brand image..."></textarea>
         </div>
 
         <div class="field-group">
-          <label for="professionalRating">2. Compared to your current online presence (or lack of one), how much more professional does the demo website make your business look? <span class="hint">(1 = not at all, 10 = extremely)</span></label>
-          <select id="professionalRating" name="professionalRating">
-            <option value="" disabled selected>– select rating –</option>
-            <option value="1">1 – not at all</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 – moderately</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10 – extremely professional</option>
-          </select>
+          <label for="challenge">2. What is the biggest challenge you’re currently facing in getting new customers?</label>
+          <textarea id="challenge" name="challenge" placeholder="e.g. low online visibility, competition, inconsistent leads..."></textarea>
         </div>
 
         <div class="field-group">
-          <label for="trustEffect">3. If a potential customer discovered your business through this website, how do you think it would affect their trust in your company?</label>
-          <textarea id="trustEffect" name="trustEffect" placeholder="e.g. they'd see us as more credible, established..."></textarea>
+          <label for="findingCustomers">3. How do most of your customers find your business today?</label>
+          <textarea id="findingCustomers" name="findingCustomers" placeholder="e.g. referrals, social media, walk-ins..."></textarea>
         </div>
       </div>
 
-      <!-- SECTION 3: INTERACTION & STANDOUT (questions 4–6) -->
+      <!-- SECTION 3: VALUE & ROI -->
       <div class="form-section">
         <div class="field-group">
-          <label for="customerInteraction">4. Can you imagine how this website might change the way customers interact with your business online?</label>
-          <textarea id="customerInteraction" name="customerInteraction" placeholder="e.g. easier contact, more engagement, clearer message..."></textarea>
+          <label for="customerValue">4. On average, how much is one new customer or job worth to your business?</label>
+          <textarea id="customerValue" name="customerValue" placeholder="e.g. $200 per job, $500 per client..."></textarea>
         </div>
 
         <div class="field-group">
-          <label for="stoodOut">5. What part of the demo website stood out to you the most?</label>
-          <textarea id="stoodOut" name="stoodOut" placeholder="e.g. layout, colors, simplicity, responsiveness..."></textarea>
+          <label for="extraJobs">5. If your business started getting just 1–2 extra jobs per month consistently, how valuable would that be to you?</label>
+          <textarea id="extraJobs" name="extraJobs" placeholder="e.g. a huge boost, very valuable..."></textarea>
         </div>
 
         <div class="field-group">
-          <label for="changes">6. Is there anything you would change or add to make this website perfect for your business?</label>
-          <textarea id="changes" name="changes" placeholder="Adjustments, features, or content you'd love to see..."></textarea>
+          <label for="onlinePresence">6. Do you feel your current online presence reflects the quality of your work? Why or why not?</label>
+          <textarea id="onlinePresence" name="onlinePresence" placeholder="e.g. yes, somewhat, not at all… explain why"></textarea>
         </div>
       </div>
 
-      <!-- SECTION 4: IMPORTANCE & VALUE (questions 7–8) -->
+      <!-- SECTION 4: IMPORTANCE & GROWTH URGENCY -->
       <div class="form-section">
         <div class="field-group">
-          <label for="importanceRating">7. How important is having a strong online presence for your business growth this year? <span class="hint">(1 = low, 10 = critical)</span></label>
+          <label for="importanceRating">7. How important is it for you to improve your online presence this year? <span class="hint">(1 = low, 10 = critical)</span></label>
           <select id="importanceRating" name="importanceRating">
             <option value="" disabled selected>– select rating –</option>
             <option value="1">1 – not important</option>
@@ -370,28 +357,31 @@
         </div>
 
         <div class="field-group">
-          <label for="valuableCustomers">8. If a website like this helped you attract even a few more customers each month, how valuable would that be for your business?</label>
-          <textarea id="valuableCustomers" name="valuableCustomers" placeholder="e.g. transformative, huge impact, nice boost..."></textarea>
+          <label for="growthTool">8. If a professionally designed website could help you attract more customers, would you be open to using it as a growth tool?</label>
+          <select id="growthTool" name="growthTool">
+            <option value="" disabled selected>– select option –</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="Not sure">Not sure</option>
+          </select>
         </div>
       </div>
 
-      <!-- SECTION 5: DECISION & SUPPORT (questions 9–10) -->
+      <!-- SECTION 5: PRE-CLOSE & NEXT STEPS -->
       <div class="form-section">
         <div class="field-group">
-          <label>9. Would having someone handle the design, updates, and technical side of your website make things easier for you?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="handleDesign" value="Yes" /> Yes</label>
-            <label><input type="radio" name="handleDesign" value="No" /> No</label>
-          </div>
+          <label for="nextStep">9. If the demo we prepared meets your expectations, would you be open to discussing next steps to launch it?</label>
+          <select id="nextStep" name="nextStep">
+            <option value="" disabled selected>– select option –</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="Not sure">Not sure</option>
+          </select>
         </div>
 
         <div class="field-group">
-          <label>10. If this website was fully customized for your business and ready to launch, would you be open to moving forward with it?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="openToMove" value="Yes" /> Yes</label>
-            <label><input type="radio" name="openToMove" value="No" /> No</label>
-            <label><input type="radio" name="openToMove" value="Maybe" /> Maybe</label>
-          </div>
+          <label for="demoConfidence">10. What would you need to see in the demo to feel confident moving forward?</label>
+          <textarea id="demoConfidence" name="demoConfidence" placeholder="e.g. specific features, layout, calls-to-action…"></textarea>
         </div>
       </div>
 
@@ -405,7 +395,6 @@
       Thank you for your feedback!
     </div>
   </div>
-
   <script>
     (function() {
       const form = document.getElementById('feedbackForm');
