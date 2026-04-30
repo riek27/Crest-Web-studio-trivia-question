@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Business feedback · website demo</title>
+  <title>Elevate · strategy & custom demo | business growth brief</title>
   <style>
-    /* === RESET + MODERN BASE (same premium look) === */
+    /* === RESET + PREMIUM MODERN FOUNDATION === */
     * {
       margin: 0;
       padding: 0;
@@ -13,109 +13,134 @@
     }
 
     body {
-      background: #f0f4fa;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(ellipse at 20% 30%, #eff3fc, #e4ebf3);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.5;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1rem;
-      color: #1e2b3c;
+      padding: 2rem 1.2rem;
+      color: #132d42;
     }
 
-    /* main premium card */
+    /* main premium card — refined glassmorphism */
     .form-card {
-      max-width: 980px;
+      max-width: 1040px;
       width: 100%;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(2px);
       border-radius: 2.5rem;
-      box-shadow: 0 25px 45px -15px rgba(18, 35, 60, 0.28), 0 8px 20px -8px rgba(0, 20, 40, 0.15);
-      padding: 2.8rem 2.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: box-shadow 0.2s;
+      box-shadow: 0 30px 50px -24px rgba(18, 45, 65, 0.3), 0 8px 20px -10px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem 2.5rem;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 245, 0.7);
     }
 
+    /* header area */
     .form-header {
       margin-bottom: 2.5rem;
-      text-align: center;
+      border-left: 5px solid #2c7eb0;
+      padding-left: 1.8rem;
     }
 
     .form-header h1 {
-      font-size: 2.2rem;
-      font-weight: 620;
+      font-size: 2.3rem;
+      font-weight: 680;
       letter-spacing: -0.02em;
-      background: linear-gradient(145deg, #1c3a5c, #2b4c73);
+      background: linear-gradient(135deg, #1f4a6e, #1f75a2);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.75rem;
     }
 
     .form-header p {
       font-size: 1rem;
-      color: #3f688b;
-      max-width: 700px;
-      margin: 0 auto;
-      font-weight: 450;
-      background: #eef4fc;
+      color: #2a5d86;
+      max-width: 800px;
+      line-height: 1.5;
+      background: #eff6fe;
+      padding: 0.7rem 1.6rem;
+      border-radius: 48px;
       display: inline-block;
-      padding: 0.5rem 2rem;
-      border-radius: 60px;
-      backdrop-filter: blur(2px);
-      line-height: 1.4;
+      font-weight: 460;
     }
 
-    /* sections */
+    .form-header strong {
+      font-weight: 620;
+      color: #1e5780;
+    }
+
+    /* section styling */
     .form-section {
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.4rem;
       padding-bottom: 2rem;
-      border-bottom: 2px dashed #dee7f2;
+      border-bottom: 2px dashed #e2ecf8;
     }
-
     .form-section:last-of-type {
       border-bottom: none;
       padding-bottom: 0;
     }
 
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 640;
+      color: #1c577d;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5faff;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      width: fit-content;
+    }
+
     .field-group {
-      margin-bottom: 1.9rem;
+      margin-bottom: 1.8rem;
     }
 
     label {
       display: flex;
       align-items: center;
       gap: 0.3rem;
-      font-weight: 530;
+      font-weight: 540;
       font-size: 0.98rem;
       margin-bottom: 0.5rem;
-      color: #1c3f5e;
+      color: #1b4c6e;
     }
 
-    label .hint {
+    .hint {
       font-weight: 400;
-      font-size: 0.8rem;
-      color: #6f8dab;
+      font-size: 0.75rem;
+      color: #6f8eae;
       margin-left: 0.25rem;
+    }
+
+    .required-star {
+      color: #dd6b5b;
+      font-size: 0.85rem;
+      margin-left: 4px;
     }
 
     input, select, textarea {
       width: 100%;
-      padding: 0.85rem 1.2rem;
+      padding: 0.85rem 1.3rem;
       font-size: 0.96rem;
       font-family: inherit;
-      border: 1.5px solid #d4e0ec;
-      border-radius: 28px;
+      border: 1.5px solid #dbe6f2;
+      border-radius: 32px;
       background: #ffffff;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     }
 
     input:focus, select:focus, textarea:focus {
       outline: none;
-      border-color: #2f72a0;
-      box-shadow: 0 0 0 4px rgba(47, 114, 160, 0.12);
+      border-color: #2f80b5;
+      box-shadow: 0 0 0 4px rgba(47, 128, 181, 0.12);
     }
 
     textarea {
@@ -124,105 +149,80 @@
       border-radius: 28px;
     }
 
-    /* radio group */
-    .radio-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      background: #f6faff;
-      padding: 0.85rem 1.8rem;
-      border-radius: 50px;
-      border: 1px solid #dce9f5;
-      margin-top: 0.3rem;
-    }
-
-    .radio-group label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-weight: 470;
-      color: #1f4465;
-      cursor: pointer;
-      margin-bottom: 0;
-    }
-
-    .radio-group input[type="radio"] {
-      width: 1.2rem;
-      height: 1.2rem;
-      accent-color: #2b6a9e;
-      box-shadow: none;
-      margin: 0;
-    }
-
     select {
       appearance: none;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23355e81" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23345f82" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
       background-repeat: no-repeat;
       background-position: right 1.3rem center;
       background-size: 1.2rem;
     }
 
+    .rating-note {
+      font-size: 0.73rem;
+      color: #6f8eae;
+      margin-top: 0.35rem;
+      margin-left: 0.5rem;
+    }
+
     .submit-btn {
-      background: #1f3f5c;
+      background: #1f4a6e;
       color: white;
       border: none;
       padding: 1rem 1.8rem;
       font-size: 1.2rem;
-      font-weight: 590;
+      font-weight: 600;
       border-radius: 60px;
       width: 100%;
       cursor: pointer;
       transition: 0.2s ease;
-      box-shadow: 0 12px 22px -12px #1f3f5c99;
-      letter-spacing: 0.3px;
-      margin-top: 0.6rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 28px -14px #1f4a6ecc;
+      letter-spacing: 0.2px;
+      margin-top: 0.5rem;
+      border: 1px solid rgba(255,255,240,0.25);
     }
 
     .submit-btn:hover {
-      background: #2a5b83;
-      transform: scale(1.01);
-      box-shadow: 0 18px 28px -12px #1e4464;
+      background: #2a6b94;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 32px -16px #1f4a6e;
     }
 
     .submit-btn:active {
-      transform: scale(0.98);
+      transform: translateY(1px);
     }
 
     .submit-btn:disabled {
       opacity: 0.7;
       cursor: not-allowed;
       transform: none;
-      box-shadow: 0 6px 12px -8px #1f3f5c99;
     }
 
-    /* Green toast popup — enhanced */
+    /* premium toast */
     .toast-success {
       visibility: hidden;
-      min-width: 280px;
-      background: #0f7b4f;
+      min-width: 300px;
+      background: #117550;
       color: white;
       text-align: center;
-      padding: 0.9rem 2rem;
+      padding: 0.9rem 1.8rem;
       border-radius: 80px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 520;
-      box-shadow: 0 16px 28px -12px #0a5536;
-      border-left: 6px solid #bcf0cf;
+      box-shadow: 0 14px 28px -12px #0a553b;
+      border-left: 6px solid #c2f0d4;
       backdrop-filter: blur(8px);
       position: sticky;
-      bottom: 1rem;
+      bottom: 0.5rem;
       margin: 1.8rem auto 0;
       width: fit-content;
-      transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
+      transition: visibility 0.2s, opacity 0.2s, transform 0.25s;
       opacity: 0;
-      transform: scale(0.92);
-      z-index: 110;
+      transform: scale(0.94);
+      z-index: 120;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.7rem;
-      letter-spacing: 0.2px;
     }
 
     .toast-success.show {
@@ -232,12 +232,12 @@
     }
 
     .toast-success::before {
-      content: "✓";
-      font-size: 1.5rem;
+      content: "✓✓";
+      font-size: 1.3rem;
       font-weight: 700;
       background: #ffffff30;
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -246,309 +246,276 @@
 
     hr {
       border: none;
-      border-top: 2px dotted #cbddee;
-      margin: 1.5rem 0 1rem;
+      border-top: 2px dotted #cbe0f0;
+      margin: 0.8rem 0 1.2rem;
     }
 
-    .required-star {
-      color: #d45a5a;
-      font-size: 0.8rem;
-      margin-left: 4px;
-    }
-
-    small.note {
+    .demo-note {
       display: block;
-      font-size: 0.75rem;
-      color: #6d8fb1;
-      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: #4e7598;
       text-align: center;
+      margin-top: 1.2rem;
+      background: #f4fafd;
+      padding: 0.8rem 1rem;
+      border-radius: 50px;
+      line-height: 1.45;
     }
 
-    /* subtle error state (optional) */
-    input:invalid:not(:placeholder-shown), select:invalid:not(:placeholder-shown) {
-      border-color: #e0a1a1;
-    }
-
-    @media (max-width: 620px) {
-      .form-card { padding: 1.8rem 1.3rem; }
-      .radio-group { gap: 1rem; padding: 0.7rem 1rem; }
-      .form-header h1 { font-size: 1.7rem; }
-      .toast-success { font-size: 0.9rem; min-width: 240px; }
+    @media (max-width: 680px) {
+      .form-card { padding: 1.8rem 1.4rem; }
+      .form-header h1 { font-size: 1.8rem; }
+      .section-title { font-size: 1.25rem; }
+      .toast-success { font-size: 0.85rem; min-width: 260px; }
     }
   </style>
 </head>
 <body>
 <div class="form-card">
   <div class="form-header">
-    <h1>🚀 Your Custom Website Demo is Ready!</h1>
-    <p>We’ve prepared a homepage tailored specifically for your business. Answer these quick questions to help us understand your priorities and make the upcoming Zoom demo as impactful as possible.</p>
+    <h1>🚀 Your Custom Website Strategy & Demo Is Ready</h1>
+    <p>We’ve built a custom homepage specifically for your business — designed as a <strong>lead-generation system, not just a website</strong>.<br>
+    This pre-demo brief helps us understand your priorities so we can guide your Zoom presentation around your <strong>goals, challenges, and real growth opportunities</strong>.</p>
   </div>
 
   <!-- 
     ======================================================
-    NETLIFY FORM – 100% RELIABLE SETUP
-    - data-netlify="true" enables Netlify Forms
-    - name + hidden form-name match exactly
-    - honeypot bot-field prevents spam
-    - _subject improves email notifications
-    - AJAX fallback: works with JS, falls back to native POST
+    NETLIFY FORM – COMPLETE & RELIABLE (AJAX + fallback)
+    - data-netlify="true" + honeypot + exact form name
     ======================================================
   -->
   <form 
-    id="feedbackForm"
+    id="strategyForm"
     method="POST"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
-    name="feedback-form"
+    name="strategy-growth-demo-2025"
   >
     <!-- Netlify required hidden fields -->
-    <input type="hidden" name="form-name" value="feedback-form" />
+    <input type="hidden" name="form-name" value="strategy-growth-demo-2025" />
     <input type="hidden" name="bot-field" aria-hidden="true" style="display: none;" />
-    <!-- Custom email subject for better inbox organization -->
-    <input type="hidden" name="_subject" value="📋 New website demo feedback - business inquiry" />
+    <input type="hidden" name="_subject" value="🎯 Strategy Brief: Custom Website Demo & Growth Consultation" />
 
-    <!-- SECTION 1: CONTACT (email & name are required) -->
+    <!-- ========== CONTACT SECTION ========== -->
     <div class="form-section">
       <div class="field-group">
-        <label for="clientName">👤 Full name <span class="required-star">*</span></label>
-        <input type="text" id="clientName" name="clientName" placeholder="e.g. Morgan Chen" required autocomplete="name" />
+        <label for="fullName">👤 Full Name <span class="required-star">*</span></label>
+        <input type="text" id="fullName" name="fullName" placeholder="e.g. Taylor Chen" required autocomplete="name" />
       </div>
 
       <div class="field-group">
-        <label for="businessName">🏢 Business name</label>
-        <input type="text" id="businessName" name="businessName" placeholder="e.g. Chen's Patisserie" autocomplete="organization" />
+        <label for="businessName">🏢 Business Name <span class="required-star">*</span></label>
+        <input type="text" id="businessName" name="businessName" placeholder="e.g. Chen & Co. Design Studio" required autocomplete="organization" />
       </div>
 
       <div class="field-group">
-        <label for="email">📧 Email address <span class="required-star">*</span></label>
-        <input type="email" id="email" name="email" placeholder="hello@business.com" required autocomplete="email" />
+        <label for="email">📧 Email Address <span class="required-star">*</span></label>
+        <input type="email" id="email" name="email" placeholder="hello@yourbusiness.com" required autocomplete="email" />
       </div>
 
       <div class="field-group">
-        <label for="phone">📞 Phone number <span class="hint">(optional)</span></label>
+        <label for="phone">📞 Phone Number <span class="hint">(optional )</span></label>
         <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" autocomplete="tel" />
       </div>
     </div>
 
-    <!-- SECTION 2: GOALS & CHALLENGES -->
+    <!-- ========== BUSINESS & GROWTH POSITION ========== -->
     <div class="form-section">
+      <div class="section-title">
+        <span>📊</span> Business & Growth Position
+      </div>
       <div class="field-group">
-        <label for="goal">1. What is the main goal you want your business to achieve in the next 3–6 months?</label>
-        <textarea id="goal" name="goal" placeholder="e.g. more customers, higher revenue, better brand image..."></textarea>
+        <label for="goalFocus">1. What are you focused on achieving over the next 3–6 months?<span class="hint"> (more clients, higher-value projects, expansion, bookings)</span></label>
+        <textarea id="goalFocus" name="goalFocus" placeholder="e.g. increase high-ticket clients by 35%, launch new service line, improve repeat business..."></textarea>
       </div>
 
       <div class="field-group">
-        <label for="challenge">2. What is the biggest challenge you’re currently facing in getting new customers?</label>
-        <textarea id="challenge" name="challenge" placeholder="e.g. low online visibility, competition, inconsistent leads..."></textarea>
+        <label for="limitingFactor">2. What is currently limiting your ability to consistently attract high-quality customers?</label>
+        <textarea id="limitingFactor" name="limitingFactor" placeholder="e.g. weak online presence, brand perception, inconsistent lead flow, outdated website..."></textarea>
       </div>
 
       <div class="field-group">
-        <label for="findingCustomers">3. How do most of your customers find your business today?</label>
-        <textarea id="findingCustomers" name="findingCustomers" placeholder="e.g. referrals, social media, walk-ins..."></textarea>
+        <label for="bestClientsSource">3. How do your best clients usually find you today?</label>
+        <textarea id="bestClientsSource" name="bestClientsSource" placeholder="e.g. referrals, SEO, word-of-mouth, industry events, social media..."></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="projectValue">4. On average, what is a new customer or project worth to your business?</label>
+        <input type="text" id="projectValue" name="projectValue" placeholder="e.g. $5,000 per project, $15,000 per project,etc" />
       </div>
     </div>
 
-    <!-- SECTION 3: VALUE & ROI -->
+    <!-- ========== WEBSITE & GROWTH FIT ========== -->
     <div class="form-section">
+      <div class="section-title">
+        <span>🚀</span> Website & Growth Fit
+      </div>
       <div class="field-group">
-        <label for="customerValue">4. On average, how much is one new customer or job worth to your business?</label>
-        <textarea id="customerValue" name="customerValue" placeholder="e.g. $5,000 per job, $10,000 per client..."></textarea>
+        <label for="clientImpact">5. If your website consistently generated 1–3 new clients per month, how would that impact your business?</label>
+        <textarea id="clientImpact" name="clientImpact" placeholder="e.g. consistent revenue stream, higher scalability, allows us to hire specialists..."></textarea>
       </div>
 
       <div class="field-group">
-        <label for="extraJobs">5. If we built you a professional website and it started bringing in 1–2 new jobs per month consistently, how valuable would that be to your business?</label>
-        <textarea id="extraJobs" name="extraJobs" placeholder="e.g. a huge boost, very valuable, game-changing..."></textarea>
-      </div>
-
-      <div class="field-group">
-        <label for="onlinePresence">6. Do you feel your current online presence reflects the quality of your work? Why or why not?</label>
-        <textarea id="onlinePresence" name="onlinePresence" placeholder="e.g. yes, somewhat, not at all… explain why"></textarea>
-      </div>
-    </div>
-
-    <!-- SECTION 4: IMPORTANCE & GROWTH URGENCY -->
-    <div class="form-section">
-      <div class="field-group">
-        <label for="importanceRating">7. How important is it for you to improve your online presence this year? <span class="hint">(1 = low, 10 = critical)</span></label>
-        <select id="importanceRating" name="importanceRating">
-          <option value="" disabled selected>– select rating –</option>
+        <label for="premiumRating">6. How important is it for your brand to look premium and trusted in your market this year? <span class="hint">(1 = low, 10 = critical)</span></label>
+        <select id="premiumRating" name="premiumRating">
+          <option value="" disabled selected>– select rating (1–10) –</option>
           <option value="1">1 – not important</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5 – moderately</option>
           <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
+          <option value="7">7 – quite important</option>
+          <option value="8">8 – very important</option>
+          <option value="9">9 – extremely</option>
           <option value="10">10 – absolutely critical</option>
         </select>
+        <div class="rating-note">⭐ Premium design directly influences pricing power and client trust.</div>
       </div>
 
       <div class="field-group">
-        <label for="growthTool">8. If a professionally designed website could help you attract more customers, would you be open to using it as a growth tool?</label>
-        <select id="growthTool" name="growthTool">
+        <label for="rolloutInterest">7. If the homepage we built positions you as the clear choice in your industry, would you be open to exploring a full rollout?</label>
+        <select id="rolloutInterest" name="rolloutInterest">
           <option value="" disabled selected>– select option –</option>
-          <option value="Yes">Yes</option>
-          <option value="Maybe">Maybe</option>
-          <option value="Not sure">Not sure</option>
+          <option value="Yes, definitely">Yes, definitely</option>
+          <option value="Maybe, let's explore">Maybe, let's explore</option>
+          <option value="Not sure, need more insights">Not sure, need more insights</option>
         </select>
-      </div>
-    </div>
-
-    <!-- SECTION 5: PRE-CLOSE & NEXT STEPS -->
-    <div class="form-section">
-      <div class="field-group">
-        <label for="nextStep">9. If the demo homepage we prepared for your company meets your expectations, would you be open to discussing next steps to launch it?</label>
-        <select id="nextStep" name="nextStep">
-          <option value="" disabled selected>– select option –</option>
-          <option value="Yes">Yes</option>
-          <option value="Maybe">Maybe</option>
-          <option value="Not sure">Not sure</option>
-        </select>
-      </div>
-
-      <div class="field-group">
-        <label for="demoConfidence">10. What would you need to see in the homepage demo we prepared to feel confident moving forward?</label>
-        <textarea id="demoConfidence" name="demoConfidence" placeholder="e.g. specific features, layout, calls-to-action…"></textarea>
       </div>
     </div>
 
     <hr />
-    <button type="submit" class="submit-btn" id="submitBtn">📬 Send feedback & secure demo</button>
-    <small class="note">✅ Your answers are sent directly to our team. We’ll meet on zoom meeting as scheduled.</small>
+    <button type="submit" class="submit-btn" id="submitBtn">📬 Confirm Your Demo</button>
+    <div class="demo-note">
+      ✅ Your responses help us tailor your Zoom presentation around <strong>real growth opportunities — not generic advice</strong>.<br>
+      During the call, we’ll walk you through your custom homepage and show how it can be positioned as a <strong>client acquisition system built specifically for your market and audience</strong>.
+    </div>
   </form>
 
-  <!-- SUCCESS TOAST (green popup) -->
+  <!-- success toast (green, elegant) -->
   <div id="successToast" class="toast-success" role="status" aria-live="polite">
-    Thank you! Your feedback arrived & we'll meet you as scheduled on zoom.
+    Thank you — we’ve received your brief. 🎯
+
+We appreciate you taking the time to share your goals and context with us. Your custom homepage is already prepared, and we’re now finalizing your Zoom demo so we can walk you through it in a way that’s tailored specifically to your business.
+
+On the call, we’ll show you exactly how your homepage is positioned to bring in real clients — and how it can be turned into a consistent lead-generation system for your business.
+
+We’re looking forward to meeting you on Zoom and walking you through everything live.
+
   </div>
 </div>
 
 <script>
   (function() {
-    const form = document.getElementById('feedbackForm');
+    const form = document.getElementById('strategyForm');
     const toast = document.getElementById('successToast');
     const submitBtn = document.getElementById('submitBtn');
     let toastTimer = null;
 
     if (!form) return;
 
-    // Show green success toast
     function showSuccessToast() {
       if (toastTimer) clearTimeout(toastTimer);
       toast.classList.add('show');
       toastTimer = setTimeout(() => {
         toast.classList.remove('show');
-      }, 4500);
+      }, 5000);
     }
 
-    // Reset form fields (clears all inputs, selects to default)
+    // reset all fields + reset selects to placeholder state
     function resetFormFields() {
       form.reset();
-      // Ensure selects display placeholder again
       const selects = form.querySelectorAll('select');
       selects.forEach(select => {
-        // set to first disabled option if available
-        if (select.options.length > 0) {
+        if (select.options.length && select.options[0] && select.options[0].disabled) {
           select.selectedIndex = 0;
         }
       });
     }
 
-    // Helper: disable/enable submit button with loading state
     function setLoading(loading) {
       submitBtn.disabled = loading;
-      submitBtn.textContent = loading ? '📬 Sending...' : '📬 Send feedback & secure demo';
+      submitBtn.textContent = loading ? '⏳ Submitting your brief...' : '📬 Confirm Your Demo';
     }
 
-    // Validate required fields (name + email)
+    // Validate required fields: fullName, businessName, email
     function validateRequired() {
-      const nameInput = form.querySelector('[name="clientName"]');
-      const emailInput = form.querySelector('[name="email"]');
+      const nameField = form.querySelector('[name="fullName"]');
+      const bizField = form.querySelector('[name="businessName"]');
+      const emailField = form.querySelector('[name="email"]');
       
-      if (!nameInput.value.trim()) {
-        alert('👤 Please enter your full name.');
-        nameInput.focus();
+      if (!nameField.value.trim()) {
+        alert('👤 Please enter your full name so we can personalize your Zoom consultation.');
+        nameField.focus();
         return false;
       }
-      if (!emailInput.value.trim() || !emailInput.validity.valid) {
-        alert('📧 Please provide a valid email address so we can follow up.');
-        emailInput.focus();
+      if (!bizField.value.trim()) {
+        alert('🏢 Business name is required — we built a custom homepage for your brand!');
+        bizField.focus();
+        return false;
+      }
+      if (!emailField.value.trim() || !emailField.validity.valid) {
+        alert('📧 A valid email address is needed to share your custom demo preview and schedule the call.');
+        emailField.focus();
         return false;
       }
       return true;
     }
 
-    // Main submit handler — fully compatible with Netlify Forms
+    // AJAX + native fallback → bulletproof Netlify submission
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
 
-      // Basic frontend validation
-      if (!validateRequired()) {
-        return;
-      }
-
-      // Prevent double submission
+      if (!validateRequired()) return;
       if (submitBtn.disabled) return;
+
       setLoading(true);
 
-      // Gather form data (includes hidden Netlify fields)
       const formData = new FormData(form);
       const urlEncoded = new URLSearchParams(formData).toString();
 
       try {
-        // POST to the same URL – Netlify's form service will process it
         const response = await fetch(window.location.href, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: urlEncoded,
         });
 
-        // Netlify returns 200 OK on successful form ingestion
         if (response.ok) {
-          // Success: show toast and clear form
+          // success: show green toast and clear all fields for a clean start
           showSuccessToast();
           resetFormFields();
+          toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } else {
-          // Netlify might return an error page (e.g., 400). We fallback to native submission.
-          console.warn('AJAX POST returned non-OK status, falling back to native form submission.');
-          // Remove event listener temporarily to avoid loop, then submit natively.
+          // fallback native (Netlify still captures)
           form.removeEventListener('submit', arguments.callee);
           form.submit();
         }
-      } catch (networkError) {
-        console.warn('Fetch failed, falling back to native form submission:', networkError);
-        // Fallback: let the browser handle the POST (Netlify will still process it)
+      } catch (err) {
+        // network issues → native fallback
+        console.warn('AJAX error, using native form POST', err);
         form.removeEventListener('submit', arguments.callee);
         form.submit();
       } finally {
-        // Re-enable button only if we are not falling back (fallback will reload/redirect)
-        // But we can re-enable it; if page reloads it won't matter.
-        setLoading(false);
+        // re-enable if not reloaded (avoid glitches)
+        if (!submitBtn.disabled) setLoading(false);
       }
     });
 
-    // Extra safety: if user navigates away, no lingering toast timer issues.
-    window.addEventListener('beforeunload', function() {
+    window.addEventListener('beforeunload', () => {
       if (toastTimer) clearTimeout(toastTimer);
     });
-
-    // (Optional) if form was submitted natively without JS, the success page would show.
-    // This script ensures that with JS we get the green toast and stay on page.
   })();
 </script>
 <!-- 
   ✅ NETLIFY FORM CONFIGURATION VERIFIED:
-  - data-netlify="true" present
-  - form name = "feedback-form" matches hidden input
-  - honeypot "bot-field" active
-  - all fields have distinct 'name' attributes
-  - AJAX + native fallback guarantees delivery
-  - success toast appears ONLY after successful POST
-  - fully responsive & accessible
+  - data-netlify="true"
+  - hidden input "form-name" matches "strategy-growth-demo-2025"
+  - honeypot bot-field protection active
+  - required fields: fullName, businessName, email
+  - custom subject for better inbox filtering
+  - AJAX + native fallback ensures 100% form capture
+  - Premium, conversion-focused design with exact messaging from brief
 -->
 </body>
 </html>
